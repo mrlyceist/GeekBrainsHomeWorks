@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Questionary", "HomeWork1\Questionary.csproj", "{C1AB549E-7935-4FD8-BE18-8181EFF92AF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BodyMassIndex", "BodyMassIndex\BodyMassIndex.csproj", "{4554F224-EC32-4C83-8B1D-127262F0DDED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distance", "Distance\Distance.csproj", "{912F4AFE-04BD-4FE0-AF20-7EAA3D48443E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeekBrainsStudyClass", "GeekBrainsStudyClass\GeekBrainsStudyClass.csproj", "{186B467F-6D2E-40D4-BB67-FA9A0795CCF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VariableValueChange", "VariableValueChange\VariableValueChange.csproj", "{2DA2F66A-F1B2-4074-B382-5114D4657ACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleWriteWithMethods", "ConsoleWriteWithMethods\ConsoleWriteWithMethods.csproj", "{770F449E-C4B8-4202-9396-29C544343084}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1AB549E-7935-4FD8-BE18-8181EFF92AF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1AB549E-7935-4FD8-BE18-8181EFF92AF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1AB549E-7935-4FD8-BE18-8181EFF92AF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1AB549E-7935-4FD8-BE18-8181EFF92AF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4554F224-EC32-4C83-8B1D-127262F0DDED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4554F224-EC32-4C83-8B1D-127262F0DDED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4554F224-EC32-4C83-8B1D-127262F0DDED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4554F224-EC32-4C83-8B1D-127262F0DDED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{912F4AFE-04BD-4FE0-AF20-7EAA3D48443E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{912F4AFE-04BD-4FE0-AF20-7EAA3D48443E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{912F4AFE-04BD-4FE0-AF20-7EAA3D48443E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{912F4AFE-04BD-4FE0-AF20-7EAA3D48443E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{186B467F-6D2E-40D4-BB67-FA9A0795CCF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{186B467F-6D2E-40D4-BB67-FA9A0795CCF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{186B467F-6D2E-40D4-BB67-FA9A0795CCF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{186B467F-6D2E-40D4-BB67-FA9A0795CCF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DA2F66A-F1B2-4074-B382-5114D4657ACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DA2F66A-F1B2-4074-B382-5114D4657ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DA2F66A-F1B2-4074-B382-5114D4657ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DA2F66A-F1B2-4074-B382-5114D4657ACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{770F449E-C4B8-4202-9396-29C544343084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{770F449E-C4B8-4202-9396-29C544343084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{770F449E-C4B8-4202-9396-29C544343084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{770F449E-C4B8-4202-9396-29C544343084}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
