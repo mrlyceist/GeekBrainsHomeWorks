@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,8 +13,7 @@ namespace HomeWork2
 {
     class HomeWork
     {
-        private static int _height;
-        private static int _width;
+        private static List<string> _menuItems;
 
         static void Main(string[] args)
         {
@@ -21,7 +21,7 @@ namespace HomeWork2
 
             ConsoleLogin.Login(attempt);
 
-            var menuItems = new List<string>()
+            _menuItems = new List<string>()
             {
                 "1 - Минимальное из трех",
                 "2 - Подсчет количества знаков числа",
@@ -30,19 +30,29 @@ namespace HomeWork2
                 "5 - Поиск \"Хороших\" чисел",
                 "6 - Рекурсивный вывод чисел и их сумма"
             };
+            ShowMenu();
 
-            var selection = PrintMenu(menuItems);
+            Console.ReadKey();
+        }
+
+        private static void ShowMenu()
+        {
+            var selection = ConsoleHelper.PrintMenu(_menuItems);
 
             Console.Clear();
             switch (selection)
             {
                 case ConsoleKey.D1:
                 case ConsoleKey.NumPad1:
-                    Console.WriteLine("first");
+                    RunMinimumOfThree();
                     break;
                 case ConsoleKey.D2:
                 case ConsoleKey.NumPad2:
-                    Console.WriteLine("second");
+                    RunNumberOfDigits();
+                    break;
+                case ConsoleKey.D3:
+                case ConsoleKey.NumPad3:
+                    RunPositiveOddSumm();
                     break;
                 case ConsoleKey.Escape:
                     Environment.Exit(0);
@@ -51,37 +61,39 @@ namespace HomeWork2
                     Console.WriteLine("Input not allowed!");
                     break;
             }
-
-            Console.ReadKey();
         }
 
-        private static ConsoleKey PrintMenu(List<string> menuItems)
+        private static void RunPositiveOddSumm()
         {
-            Console.Clear();
-            RefreshSize();
+            var prompt = "Вычисление суммы введенных положительных нечетных чисел";
+            Prompt(prompt);
+            var positiveOddNumbers = new PositiveOddSumm(prompt);
 
-            string prompt = "Выберите задание:";
-            string longestItem = menuItems.OrderByDescending(s => s.Length).First();
-
-            Console.SetCursorPosition(_width/2 - longestItem.Length/2, _height/2 - 5);
-            int left = Console.CursorLeft;
-            int top = Console.CursorTop;
-            ConsoleHelper.Print(prompt, left, top);
-
-            foreach (string item in menuItems)
-            {
-                ConsoleHelper.Print(item, left, top+menuItems.IndexOf(item)+1);
-            }
-            
-            Console.SetCursorPosition(left, top+menuItems.Count+1);
-
-            return Console.ReadKey().Key;
+            ShowMenu();
         }
 
-        private static void RefreshSize()
+        private static void RunNumberOfDigits()
         {
-            _height = Console.WindowHeight;
-            _width = Console.WindowWidth;
+            var prompt = "Вычисление количества знаков введенного числа";
+            Prompt(prompt);
+            var numberOfDigits = new NumberOfDigits(prompt);
+
+            ShowMenu();
+        }
+
+        private static void RunMinimumOfThree()
+        {
+            var prompt = "Поиск минимального из трех введенных чисел";
+            Prompt(prompt);
+            var minimumOfThree = new MinimumOfThree(prompt);
+
+            ShowMenu();
+        }
+
+        private static void Prompt(string prompt)
+        {
+            ConsoleHelper.Print(prompt, true, ConsoleColor.Green);
+            Thread.Sleep(1000);
         }
     }
 }

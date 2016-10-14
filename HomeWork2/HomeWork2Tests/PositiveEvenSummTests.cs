@@ -11,9 +11,9 @@ namespace HomeWork2Tests
         public void FindOddsReturns1And3From1234()
         {
             var pos = new PositiveOddSumm();
-            List<int> numbers = new List<int> {1, 2, 3, 4};
+            List<double> numbers = new List<double> {1, 2, 3, 4};
 
-            List<int> foundOdds = pos.FindOdds(numbers);
+            List<double> foundOdds = pos.FindOdds(numbers);
 
             Assert.AreEqual(2, foundOdds.Count);
             Assert.IsTrue(foundOdds.Contains(1));
@@ -24,12 +24,31 @@ namespace HomeWork2Tests
         public void FindOddsReturns1FromMinus1And1()
         {
             var pos = new PositiveOddSumm();
-            List<int> odds = new List<int> {-1, 1};
+            List<double> odds = new List<double> {-1, 1};
 
-            List<int> positives = pos.FindOdds(odds);
+            List<double> positives = pos.FindOdds(odds);
 
             Assert.AreEqual(1, positives.Count);
             Assert.IsTrue(positives.Contains(1));
+        }
+
+        [TestMethod]
+        public void CalculateSumReturns4ForDefaultSet()
+        {
+            var pos = new PositiveOddSumm();
+
+            List<double> defaultDoubles = new List<double>
+            {
+                -1,
+                2,
+                1,
+                3,
+                4
+            };
+
+            double sum = pos.CalculateSum(defaultDoubles);
+
+            Assert.AreEqual(4, sum);
         }
     }
 }

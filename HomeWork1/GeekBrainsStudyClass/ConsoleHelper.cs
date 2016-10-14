@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GeekBrainsStudyClass
 {
@@ -87,7 +89,7 @@ namespace GeekBrainsStudyClass
         /// <returns>Some double value</returns>
         public static double GetDoubleFromConsole(string prompt)
         {
-            Console.Write($"{prompt} ");
+            Console.Write($"{prompt}: ");
             return ParseDouble();
         }
 
@@ -109,6 +111,30 @@ namespace GeekBrainsStudyClass
             Console.ForegroundColor = ConsoleColor.Red;
             Print(@string, centered);
             Console.ForegroundColor = oldColor;
+        }
+
+        public static ConsoleKey PrintMenu(List<string> menuItems)
+        {
+            Console.Clear();
+            int width = Console.WindowWidth;
+            int height = Console.WindowHeight;
+
+            string prompt = "Выберите задание (Esc для выхода):";
+            string longestItem = menuItems.OrderByDescending(s => s.Length).First();
+
+            Console.SetCursorPosition(width / 2 - longestItem.Length / 2, height / 2 - menuItems.Count / 2 - 2);
+            int left = Console.CursorLeft;
+            int top = Console.CursorTop;
+            ConsoleHelper.Print(prompt, left, top);
+
+            foreach (string item in menuItems)
+            {
+                ConsoleHelper.Print(item, left, top + menuItems.IndexOf(item) + 1);
+            }
+
+            Console.SetCursorPosition(left, top + menuItems.Count + 1);
+
+            return Console.ReadKey().Key;
         }
     }
 }
