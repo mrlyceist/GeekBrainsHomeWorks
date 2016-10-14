@@ -8,7 +8,7 @@ namespace HomeWork2Tests
     public class MinimumOfThreeTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void FindMinimalReturns1For123()
         {
             var minOfThree = new MinimumOfThree();
 
