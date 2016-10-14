@@ -1,5 +1,4 @@
 ﻿using System;
-using System.CodeDom;
 using HomeWork2;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -56,7 +55,6 @@ namespace HomeWork2Tests
             var bmi = new BodyMassIndex();
 
             var height = 1.7;
-            var index = 21.745;
 
             int weight = bmi.CalculateNormalMass(height);
 

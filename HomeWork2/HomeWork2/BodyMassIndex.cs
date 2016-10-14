@@ -33,16 +33,11 @@ namespace HomeWork2
             var normalWeight = CalculateNormalMass(height);
             var normalIndex = GetIndex(normalWeight, height);
             var delta = index - normalIndex;
-
-            var advisedWeight = weight - normalWeight;
-
+            
             if (Math.Abs(delta) < 3.245) return "Так держать!";
-
-
-
-            return delta < 0
-                ? $"Вам не помешает набрать {normalWeight-weight} кг."
-                : $"Вам не помешает сбросить {weight-normalWeight} кг.";
+            
+            return "Вам не помешает " +
+                   (delta < 0 ? $"набрать {normalWeight - weight}" : $"сбросить {weight - normalWeight}") + " кг.";
         }
     }
 }
