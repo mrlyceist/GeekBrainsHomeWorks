@@ -79,5 +79,36 @@ namespace GeekBrainsStudyClass
 
             Print(@string, xPosition, yPosition);
         }
+
+        /// <summary>
+        /// Offeres user to input some number, that will be returned.
+        /// </summary>
+        /// <param name="prompt">Prompt text</param>
+        /// <returns>Some double value</returns>
+        public static double GetDoubleFromConsole(string prompt)
+        {
+            Console.Write($"{prompt} ");
+            return ParseDouble();
+        }
+
+        /// <summary>
+        /// Offeres user to input some string, that will be returned.
+        /// </summary>
+        /// <param name="prompt">Prompt text</param>
+        /// <returns>Some string</returns>
+        public static string GetStringFromConsole(string prompt)
+        {
+            Console.Write($"{prompt}: ");
+            return Console.ReadLine();
+        }
+
+        //public static string GetStringFromConsole
+        public static void Print(string @string, bool centered, ConsoleColor color)
+        {
+            var oldColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Print(@string, centered);
+            Console.ForegroundColor = oldColor;
+        }
     }
 }
