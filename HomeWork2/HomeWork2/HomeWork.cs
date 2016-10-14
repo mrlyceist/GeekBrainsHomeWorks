@@ -10,6 +10,8 @@ namespace HomeWork2
 {
     class HomeWork
     {
+        private static int _height;
+        private static int _width;
         private const string Login = "qwe";
         private const string Password = "123";
 
@@ -18,22 +20,65 @@ namespace HomeWork2
             const int attempt = 1;
 
             ConsoleLogin(attempt);
-            
+
+            var menuItems = new List<string>()
+            {
+                "1 - Минимальное из трех",
+                "2 - Подсчет количества знаков числа",
+                "3 - Сумма нечетных положительных чисел",
+                "4 - Индекс Массы Тела (с интерпретацией)",
+                "5 - Поиск \"Хороших\" чисел",
+                "6 - Рекурсивный вывод чисел и их сумма"
+            };
+
+            var selection = PrintMenu(menuItems);
+
             Console.Clear();
+            switch (selection)
+            {
+                case ConsoleKey.D1:
+                case ConsoleKey.NumPad1:
+                    Console.WriteLine("first");
+                    break;
+                case ConsoleKey.D2:
+                case ConsoleKey.NumPad2:
+                    Console.WriteLine("second");
+                    break;
+                case ConsoleKey.Escape:
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("Input not allowed!");
+                    break;
+            }
 
-            PrintMenu();
-
+            Console.ReadKey();
         }
 
-        private static void PrintMenu()
+        private static ConsoleKey PrintMenu(List<string> menuItems)
         {
-            //Console.SetCursorPosition();
+            Console.Clear();
+            RefreshSize();
+
+            string prompt = "Выберите задание:";
+            string longestItem = menuItems.OrderByDescending(s => s.Length).First();
+
+            Console.SetCursorPosition(_width/2 - longestItem.Length/2, _height/2 - 5);
+            int left = Console.CursorLeft;
+            int top = Console.CursorTop;
+            ConsoleHelper.Print(prompt, left, top);
+
+            foreach (string item in menuItems)
+            {
+                ConsoleHelper.Print(item, left, top+menuItems.IndexOf(item)+1);
+            }
+            
+            return Console.ReadKey().Key;
         }
 
         private static void ConsoleLogin(int attempt)
         {
-            var height = Console.WindowHeight;
-            var width = Console.WindowWidth;
+            RefreshSize();
 
             string login;
             string password;
@@ -41,18 +86,24 @@ namespace HomeWork2
             Console.Clear();
             if (attempt != 1)
             {
-                string message = $"Неудачная попытка входа. Осталось {4 - attempt} попытки!";
+                string message = $"Неудачная попытка входа. Попыток осталось: {4 - attempt}.";
                 ConsoleHelper.Print(message, true, ConsoleColor.Red);
                 Thread.Sleep(1000);
                 Console.Clear();
             }
             if (attempt>3) Environment.Exit(0);
 
-            AskForLogin(height, width, out login, out password);
+            AskForLogin(_height, _width, out login, out password);
             attempt++;
 
             if (login==Login && password==Password) return;
             ConsoleLogin(attempt);
+        }
+
+        private static void RefreshSize()
+        {
+            _height = Console.WindowHeight;
+            _width = Console.WindowWidth;
         }
 
         private static void AskForLogin(int height, int width, out string login, out string password)
