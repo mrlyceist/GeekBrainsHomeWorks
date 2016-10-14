@@ -50,7 +50,7 @@
     <Compile Include="MinimumOfThree.cs" />
     <Compile Include="NumberOfDigits.cs" />
     <Compile Include="NumbersAndSumm.cs" />
-    <Compile Include="PositiveEvenSumm.cs" />
+    <Compile Include="PositiveOddSumm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
