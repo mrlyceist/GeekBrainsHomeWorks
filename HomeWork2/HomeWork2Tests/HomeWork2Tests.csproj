@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BodyMassIndexTests.cs" />
     <Compile Include="MinimumOfThreeTests.cs" />
     <Compile Include="NumberOfDigitsTests.cs" />
     <Compile Include="PositiveEvenSummTests.cs" />
