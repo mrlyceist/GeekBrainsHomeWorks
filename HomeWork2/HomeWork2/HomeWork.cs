@@ -15,36 +15,44 @@ namespace HomeWork2
 
         static void Main(string[] args)
         {
-            if (!ConsoleLogin()) return;
-            Console.WriteLine("WAT");
-            Console.ReadKey();
+            const int attempt = 1;
+
+            ConsoleLogin(attempt);
+            
+            Console.Clear();
+
+            PrintMenu();
+
         }
 
-        private static bool ConsoleLogin()
+        private static void PrintMenu()
         {
-            int i = 1;
-                var height = Console.WindowHeight;
-                var width = Console.WindowWidth;
-            
-            do
+            //Console.SetCursorPosition();
+        }
+
+        private static void ConsoleLogin(int attempt)
+        {
+            var height = Console.WindowHeight;
+            var width = Console.WindowWidth;
+
+            string login;
+            string password;
+
+            Console.Clear();
+            if (attempt != 1)
             {
-                Console.Title = i.ToString();
-                string login = string.Empty;
-                string password=string.Empty;
+                string message = $"Неудачная попытка входа. Осталось {4 - attempt} попытки!";
+                ConsoleHelper.Print(message, true, ConsoleColor.Red);
+                Thread.Sleep(1000);
+                Console.Clear();
+            }
+            if (attempt>3) Environment.Exit(0);
 
-                    Console.Clear();
-                    ConsoleHelper.Print("ERROR", true, ConsoleColor.Red);
-                    Thread.Sleep(1000);
-                    Console.Clear();
-                    AskForLogin(height, width, out login, out password);
-                    i++;
+            AskForLogin(height, width, out login, out password);
+            attempt++;
 
-                if (login == Login && password == Password)
-                {
-                    return true;
-                }
-            } while (i <= 3);
-            return false;
+            if (login==Login && password==Password) return;
+            ConsoleLogin(attempt);
         }
 
         private static void AskForLogin(int height, int width, out string login, out string password)
