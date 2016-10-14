@@ -1,9 +1,33 @@
 ﻿using System;
+using GeekBrainsStudyClass;
 
 namespace HomeWork2
 {
     public class BodyMassIndex
     {
+        public BodyMassIndex() {}
+
+        public BodyMassIndex(string prompt)
+        {
+            bool loop = true;
+            while (loop)
+            {
+                Console.Clear();
+
+                Console.WriteLine(prompt);
+
+                double height = ConsoleHelper.GetDoubleFromConsole("Введите рост (в см)");
+                double weight = ConsoleHelper.GetDoubleFromConsole("Введите вес (в кг)");
+                double index = GetIndex(weight, height);
+
+                Console.WriteLine($"Ваш Индекс Массы Тела: {index:F} - {Interprete(index)}");
+                Console.WriteLine(Advice(weight, height));
+
+                Console.WriteLine("Еще разок? ('y' - повторить программу, 'n' - выход в главное меню.)");
+                if (Console.ReadKey().Key != ConsoleKey.Y) loop = false;
+            }
+        }
+
         internal double GetIndex(double weight, double height)
         {
             if (height > 2.5) height = height/100;

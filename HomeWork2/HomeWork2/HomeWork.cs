@@ -54,6 +54,14 @@ namespace HomeWork2
                 case ConsoleKey.NumPad3:
                     RunPositiveOddSumm();
                     break;
+                case ConsoleKey.D4:
+                case ConsoleKey.NumPad4:
+                    RunBodyMassIndex();
+                    break;
+                case ConsoleKey.D5:
+                case ConsoleKey.NumPad5:
+                    RunGoodNumbers();
+                    break;
                 case ConsoleKey.Escape:
                     Environment.Exit(0);
                     break;
@@ -61,6 +69,25 @@ namespace HomeWork2
                     Console.WriteLine("Input not allowed!");
                     break;
             }
+            ShowMenu();
+        }
+
+        private static void RunGoodNumbers()
+        {
+            var prompt = "Поиск \"Хороших\" чисел";
+            Prompt(prompt);
+            var goodNumbers = new GoodNumbers(prompt);
+
+            ShowMenu();
+        }
+
+        private static void RunBodyMassIndex()
+        {
+            var prompt = "Рассчет индекса массы тела";
+            Prompt(prompt);
+            var bodyMassIndex = new BodyMassIndex(prompt);
+
+            ShowMenu();
         }
 
         private static void RunPositiveOddSumm()
