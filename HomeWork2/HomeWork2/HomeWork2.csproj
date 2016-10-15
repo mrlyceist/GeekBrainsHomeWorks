@@ -44,12 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BodyMassIndex.cs" />
-    <Compile Include="ConsoleLogin.cs" />
+    <Compile Include="ConsoleAuthorization.cs" />
     <Compile Include="GoodNumbers.cs" />
     <Compile Include="HomeWork.cs" />
     <Compile Include="MinimumOfThree.cs" />
     <Compile Include="NumberOfDigits.cs" />
-    <Compile Include="NumbersAndSumm.cs" />
     <Compile Include="PositiveOddSumm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecursiveOutput.cs" />

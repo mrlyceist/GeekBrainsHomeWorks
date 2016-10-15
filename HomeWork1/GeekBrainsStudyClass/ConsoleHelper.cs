@@ -104,7 +104,12 @@ namespace GeekBrainsStudyClass
             return Console.ReadLine();
         }
 
-        //public static string GetStringFromConsole
+        /// <summary>
+        /// Prints some text at the center of a console with some color.
+        /// </summary>
+        /// <param name="string">Text to be printed</param>
+        /// <param name="centered">Centerness of a text</param>
+        /// <param name="color">Color, which will be used to print text</param>
         public static void Print(string @string, bool centered, ConsoleColor color)
         {
             var oldColor = Console.ForegroundColor;
@@ -113,6 +118,11 @@ namespace GeekBrainsStudyClass
             Console.ForegroundColor = oldColor;
         }
 
+        /// <summary>
+        /// Prints menu on the center of a screen, listens for a key to be pressed.
+        /// </summary>
+        /// <param name="menuItems">List of menu textual items</param>
+        /// <returns>Console key</returns>
         public static ConsoleKey PrintMenu(List<string> menuItems)
         {
             Console.Clear();

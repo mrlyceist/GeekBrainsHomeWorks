@@ -1,25 +1,37 @@
-﻿using System;
+﻿using GeekBrainsStudyClass;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using GeekBrainsStudyClass;
 
 [assembly: InternalsVisibleTo("HomeWork2Tests")]
 namespace HomeWork2
 {
+    /// <summary>
+    /// КУРС: C#, Уровень 1.
+    /// Домашняя работа №2.
+    /// Выполнил: Алексей Дорогов.
+    /// 
+    /// Структура приложения:
+    ///     Каждая задача выполнена в своем классе.
+    ///     При запуске запрашивается логин и пароль.
+    ///     Логин:  geekbrains
+    ///     Пароль: geekbrains
+    ///     Меню позволяет выбрать задачу для проверки.
+    /// В большинстве случаев реализована проверка на ошибки.
+    /// Юнит-тесты логики представлены в проекте "HomeWork2UnitTests".
+    /// </summary>
     class HomeWork
     {
+        #region Fields
         private static List<string> _menuItems;
+        #endregion
 
         static void Main(string[] args)
         {
             const int attempt = 1;
 
-            ConsoleLogin.Login(attempt);
+            ConsoleAuthorization.ConsoleLogin(attempt);
 
             _menuItems = new List<string>()
             {
@@ -35,47 +47,8 @@ namespace HomeWork2
             Console.ReadKey();
         }
 
-        private static void ShowMenu()
-        {
-            var selection = ConsoleHelper.PrintMenu(_menuItems);
-
-            Console.Clear();
-            switch (selection)
-            {
-                case ConsoleKey.D1:
-                case ConsoleKey.NumPad1:
-                    RunMinimumOfThree();
-                    break;
-                case ConsoleKey.D2:
-                case ConsoleKey.NumPad2:
-                    RunNumberOfDigits();
-                    break;
-                case ConsoleKey.D3:
-                case ConsoleKey.NumPad3:
-                    RunPositiveOddSumm();
-                    break;
-                case ConsoleKey.D4:
-                case ConsoleKey.NumPad4:
-                    RunBodyMassIndex();
-                    break;
-                case ConsoleKey.D5:
-                case ConsoleKey.NumPad5:
-                    RunGoodNumbers();
-                    break;
-                case ConsoleKey.D6:
-                case ConsoleKey.NumPad6:
-                    RunRecursiveOutput();
-                    break;
-                case ConsoleKey.Escape:
-                    Environment.Exit(0);
-                    break;
-                default:
-                    Console.WriteLine("Input not allowed!");
-                    break;
-            }
-            ShowMenu();
-        }
-
+        #region Private Methods
+        #region Task Starters
         private static void RunRecursiveOutput()
         {
             var prompt = "Рекурсивный вывод диапазона";
@@ -130,11 +103,59 @@ namespace HomeWork2
 
             ShowMenu();
         }
+        #endregion
 
+        #region Service Methods
         private static void Prompt(string prompt)
         {
             ConsoleHelper.Print(prompt, true, ConsoleColor.Green);
             Thread.Sleep(1000);
         }
+
+        /// <summary>
+        /// Обработка выбора элемента меню
+        /// </summary>
+        private static void ShowMenu()
+        {
+            var selection = ConsoleHelper.PrintMenu(_menuItems);
+
+            Console.Clear();
+            switch (selection)
+            {
+                case ConsoleKey.D1:
+                case ConsoleKey.NumPad1:
+                    RunMinimumOfThree();
+                    break;
+                case ConsoleKey.D2:
+                case ConsoleKey.NumPad2:
+                    RunNumberOfDigits();
+                    break;
+                case ConsoleKey.D3:
+                case ConsoleKey.NumPad3:
+                    RunPositiveOddSumm();
+                    break;
+                case ConsoleKey.D4:
+                case ConsoleKey.NumPad4:
+                    RunBodyMassIndex();
+                    break;
+                case ConsoleKey.D5:
+                case ConsoleKey.NumPad5:
+                    RunGoodNumbers();
+                    break;
+                case ConsoleKey.D6:
+                case ConsoleKey.NumPad6:
+                    RunRecursiveOutput();
+                    break;
+                case ConsoleKey.Escape:
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("Input not allowed!");
+                    break;
+            }
+            ShowMenu();
+        }
+        #endregion
+        #endregion
     }
 }

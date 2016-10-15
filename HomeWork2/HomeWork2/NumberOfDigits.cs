@@ -4,10 +4,23 @@ using GeekBrainsStudyClass;
 
 namespace HomeWork2
 {
+    /// <summary>
+    /// Задача "Сумма разрядов" (№2 в методичке)
+    /// 
+    /// Выполнил Алексей Дорогов
+    /// </summary>
     public class NumberOfDigits
     {
+        #region Constructors
+        /// <summary>
+        /// Конструктор, необходимый для юнит-тестирования
+        /// </summary>
         public NumberOfDigits() {}
 
+        /// <summary>
+        /// Отвечает за пользовательский интерфейс
+        /// </summary>
+        /// <param name="prompt">Строка приветствия</param>
         public NumberOfDigits(string prompt)
         {
             bool loop = true;
@@ -27,10 +40,18 @@ namespace HomeWork2
                 if (Console.ReadKey().Key != ConsoleKey.Y) loop = false;
             }
         }
+        #endregion
 
+        #region Private Methods
+        /// <summary>
+        /// Возвращает количество разрядов числа
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         internal int CountDigits(double number)
         {
             return number.ToString(CultureInfo.InvariantCulture).Trim('-').Length;
         }
+        #endregion
     }
 }
