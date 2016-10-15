@@ -52,6 +52,7 @@
     <Compile Include="NumbersAndSumm.cs" />
     <Compile Include="PositiveOddSumm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecursiveOutput.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

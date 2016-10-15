@@ -62,6 +62,10 @@ namespace HomeWork2
                 case ConsoleKey.NumPad5:
                     RunGoodNumbers();
                     break;
+                case ConsoleKey.D6:
+                case ConsoleKey.NumPad6:
+                    RunRecursiveOutput();
+                    break;
                 case ConsoleKey.Escape:
                     Environment.Exit(0);
                     break;
@@ -69,6 +73,16 @@ namespace HomeWork2
                     Console.WriteLine("Input not allowed!");
                     break;
             }
+            ShowMenu();
+        }
+
+        private static void RunRecursiveOutput()
+        {
+            var prompt = "Рекурсивный вывод диапазона";
+            Prompt(prompt);
+
+            var recursiveOutput = new RecursiveOutput(prompt);
+
             ShowMenu();
         }
 
